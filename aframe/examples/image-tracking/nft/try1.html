@@ -1,59 +1,62 @@
 <!doctype html>
 <html>
-    <head>
-      <meta charset="utf-8">
-      <title>As</title>
-      <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1.3.0/dist/aframe-master.min.js"></script>
-      <script src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js'></script>
-      <style>
-        .arjs-loader {
-          height: 100%;
-          width: 100%;
-          position: absolute;
-          top: 0;
-          left: 0;
-          background-color: rgba(0, 0, 0, 0.8);
-          z-index: 9999;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-  
-        .arjs-loader div {
-          text-align: center;
-          font-size: 1.25em;
-          color: white;
-        }
-      </style>
-    </head>
-    <body style="margin : 0px; overflow: hidden;">
-        <!-- minimal loader shown until image descriptors are loaded -->
-        <div class="arjs-loader">
-          <div>Loading, please wait...</div>
-        </div>
-        <a-scene
-          vr-mode-ui="enabled: false;"
-          renderer="logarithmicDepthBuffer: true; precision: medium;"
-          embedded
-          arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
+  <head>
+    <meta charset="utf-8">
+    <title>Assignment 2</title>
+    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1.3.0/dist/aframe-master.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.2.0/dist/aframe-extras.min.js"></script>
+    <style>
+      .arjs-loader {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .arjs-loader div {
+        text-align: center;
+        font-size: 1.25em;
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body style="margin : 0px; overflow: hidden;">
+    <!-- minimal loader shown until image descriptors are loaded -->
+    <div class="arjs-loader">
+      <div>Loading, please wait...</div>
+    </div>
+    <a-scene
+      vr-mode-ui="enabled: false;"
+      renderer="logarithmicDepthBuffer: true; precision: medium;"
+      embedded
+      arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
+    >
+      <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
+      <a-nft
+        type="nft"
+        url="https://raw.githack.com/Laikaichian22/AR.js/master/aframe/examples/image-tracking/nft/ironman/ironman-image/trex"
+        smooth="true"
+        smoothCount="10"
+        smoothTolerance=".01"
+        smoothThreshold="5"
+      >
+        <a-entity
+          gltf-model="https://raw.githack.com/Laikaichian22/AR.js/master/aframe/examples/image-tracking/nft/ironman/ironmanwithsuit.gltf"
+          scale="300 300 300"
+          position="550 0 -100"
+          rotation="0 -90 90"
         >
-          <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
-          <a-nft
-            type="nft"
-            url='https://raw.githack.com/Laikaichian22/AR.js/master/aframe/examples/image-tracking/nft/ironman/ironman-image/trex'
-            smooth="true"
-            smoothCount="10"
-            smoothTolerance=".01"
-            smoothThreshold="5"
-          >
-            <a-entity
-              gltf-model='https://raw.githack.com/Laikaichian22/AR.js/master/aframe/examples/image-tracking/nft/ironman/ironmanwithsuit.gltf'
-              scale="5 5 5"
-              position="150 300 -100"
-            >
-            </a-entity>
-          </a-nft>
-          <a-entity camera></a-entity>
-        </a-scene>
-      </body>
+        </a-entity>
+      </a-nft>
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
 </html>
